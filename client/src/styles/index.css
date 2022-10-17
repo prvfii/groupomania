@@ -1,0 +1,14 @@
+@import './components/navbar.css';
+@import './components/leftnav.css';
+@import './components/formconnection.css';
+@import './components/cardpost.css';
+@import './components/profilpage.css';
+@import './components/newPostForm.css';
+
+
+
+body {
+
+    font-family: lato;
+    
+}

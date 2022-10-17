@@ -28,7 +28,9 @@ module.exports.updateUser =  (req, res)=>{
             {_id: req.params.id},
             {
                $set:{
-                bio: req.body.bio
+                bio: req.body.bio,
+                
+                
                } 
             },
 

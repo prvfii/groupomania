@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import SignInForm from "./SignInForm";
+import Logo from '../../Groupomania Logos (update 2022)/logo1.png'
 
 const SignUpForm = () => {
   const [formSubmit, setFormSubmit] = useState(false);
@@ -69,6 +70,8 @@ const SignUpForm = () => {
         </>
       ) : (
         <form action="" onSubmit={handleRegister} id="sign-up-form">
+          <img src={Logo} className='form-logo' />
+          <br></br>
           <label htmlFor="pseudo">Pseudo</label>
           <br />
           <input

@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+import Logo from '../../Groupomania Logos (update 2022)/logo1.png'
+
 
 function SignInForm() {
 
@@ -41,6 +43,8 @@ function SignInForm() {
 
   return (
     <form action='' onSubmit={handleLogin} id='sign-up-form'>
+      <img src={Logo} className='form-logo' />
+      <br></br>
       <label htmlFor='email'>Email</label>
       <br />
       <input type='text' name='email' id='email' onChange={(e) =>

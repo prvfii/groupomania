@@ -10,6 +10,7 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         picture: action.payload,
+   
       };
     case UPDATE_BIO:
       return {

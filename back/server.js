@@ -9,7 +9,10 @@ const { checkUser, requireAuth } = require('./middleware/auth.middleware');
 const cors = require('cors');
 const app = express();
 const helmet = require("helmet");
-app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+const path = require('path');
+
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" })); 
+//app.use('/images', express.static(path.join(__dirname, 'images')));
 
 const corsOptions = {
     origin: process.env.CLIENT_URL,

@@ -1,0 +1,29 @@
+.left-part {
+    display: flex;
+    flex-direction: column;   
+    align-self: center;
+    justify-content: center;
+}
+
+.right-part {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+
+}
+
+.profil-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid cadetblue;
+    
+}
+
+.update-container img {
+    border-radius: 25px;
+}

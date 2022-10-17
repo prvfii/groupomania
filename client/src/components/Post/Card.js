@@ -1,5 +1,3 @@
- 
-
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { dateParser, isEmpty } from "../Utils";
@@ -23,9 +21,33 @@ const Card = ({ post }) => {
       dispatch(updatePost(post._id, textUpdate));
     }
     setIsUpdated(false);
+   
   };
 
+ /*  const updateItemAdmin = () => {
+    if (userData.isAdmin === true) {
+     
+      let ele = document.createElement("div")
+      document.getElementsByClassName('card-container').appendChild(ele)
+      Object.assign(ele, {className : 'button-container'})
+      let div1 = document.createElement("div");
+      div1.appendChild(ele);
+      let img1 = document.createElement("img")
+      Object.assign(img1, {alt: 'edit', src: './img/icons/edit.svg'})
+      img1.appendChild(div1);
+      let div2 = document.createElement("div");
+      div2.appendChild(ele);
+      let img2 = document.createElement("img")
+      Object.assign(img2, {alt: 'trash', src: './img/icons/trash.svg'})
+      img2.appendChild(div2);
+      
+
+
+    }
+  }; 
+ updateItemAdmin()*/
   useEffect(() => {
+   
     !isEmpty(usersData[0]) && setIsLoading(false);
   }, [usersData]);
 
@@ -47,6 +69,7 @@ const Card = ({ post }) => {
                   .join("")
               }
               alt="poster-pic"
+              className="poster-pic"
             />
           </div>
           <div className="card-right">

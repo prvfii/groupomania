@@ -10,11 +10,7 @@ function LeftNav() {
             <img src="./img/icons/home.svg" alt="home" />
           </NavLink>
           <br />
-          <NavLink to="/"  /* className="active-left-nav" */>
-            <img src="./img/icons/rocket.svg" alt="rocket" />
-          </NavLink>
-          <br />
-          <NavLink to="/"  /* className="active-left-nav" */>
+          <NavLink to="/profil"  /* className="active-left-nav" */>
             <img src="./img/icons/user.svg" alt="user" />
           </NavLink>
           <br />

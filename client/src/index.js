@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { legacy_createStore as createStore } from "redux";
 import {createRoot} from 'react-dom/client';
+import './styles/index.css'
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
@@ -12,6 +13,7 @@ import { getUsers } from "./actions/users.actions";
 // dev tools
 import { composeWithDevTools } from "redux-devtools-extension";
 import { getPosts } from "./actions/post.actions";
+
 
 const store = createStore(
   rootReducer,

@@ -33,19 +33,16 @@ export const getPosts = (num) => {
   };
 };
 
-export const addPost = (data) => {
+ export const addPost = (data) => {
   return (dispatch) => {
     return axios
-      .post(`${process.env.REACT_APP_API_URL}api/post/`, data)
+      .post(`${process.env.REACT_APP_API_URL}api/post/`, data, {withCredentials: true})
+      
       .then((res) => {
-        if (res.data.errors) {
-          dispatch({ type: GET_POST_ERRORS, payload: res.data.errors });
-        } else {
-          dispatch({ type: GET_POST_ERRORS, payload: "" });
-        }
+        dispatch({ type: GET_POST_ERRORS, payload: "" });
       });
   };
-};
+}; 
 
 export const likePost = (postId, userId) => {
   return (dispatch) => {

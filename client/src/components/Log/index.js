@@ -20,7 +20,7 @@ function Log() {
   return (
     <div className='connection-form'>
     <div className='form-container'>
-        <ul>
+        <ul className='ul-form'>
         <li onClick={handeModals} id='register'
         className={signUpModal ? "active-btn" : null }>S'inscrire</li>
         <li onClick={handeModals} id='login'

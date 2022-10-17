@@ -31,6 +31,12 @@ const userSchema = new mongoose.Schema(
             trim: true
         },
 
+        isAdmin: {
+            type: Boolean,
+            default: false
+            
+        },
+
         picture: {
             type: String,
             default: "./uploads/profil/random-user.png"
@@ -52,7 +58,8 @@ const userSchema = new mongoose.Schema(
 
         likes:{
             type: [String]
-        }
+        },
+
 
     },
 
