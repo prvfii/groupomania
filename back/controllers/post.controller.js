@@ -64,15 +64,15 @@ module.exports.readPost = (req, res) => {
 
  */
 
-module.exports.createPost = async (req, res) => {
+/* module.exports.createPost = async (req, res) => {
   let fileName;
 
   if (req.file != null) {
     try {
       if (
-        req.file.type !== "image/jpg" &&
-        req.file.type !== "image/png" &&
-        req.file.type !== "image/jpeg"
+        req.file.mimetype !== "image/jpg" &&
+        req.file.mimetype !== "image/png" &&
+        req.file.mimetype !== "image/jpeg"
       ) {
         console.log("cc");
         throw Error("invalid file");
@@ -93,8 +93,10 @@ module.exports.createPost = async (req, res) => {
       req.file.buffer,
       fs.createWriteStream(
         `${__dirname}/../client/public/uploads/posts/${fileName}`
-      )
+      ) 
+      ,res.send("File uploaded as" + fileName)
     );
+   
   }
 
   const newPost = new PostModel({
@@ -113,7 +115,33 @@ module.exports.createPost = async (req, res) => {
     return res.status(400).send(err);
   }
 };
+ */
 
+module.exports.createPost = async (req,res) => {
+
+  const picture = (req.file ? req.file.filename : null);
+  const message = req.body.message;
+
+
+
+  if(!message && !picture) return res.status(400).json('Publication vide')
+
+  const newPost = new PostModel({
+      posterId: req.body.posterId,
+      message: message,
+      picture: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`, 
+      likers: [],
+      comments: [],
+  })
+
+  try {
+      await newPost.save();
+      res.status(200).json('Post crée avec success');
+  }
+  catch (err) {
+      res.status(400).send(err);
+  }
+}
 module.exports.updatePost = async (req, res) => {
    if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown : " + req.params.id);

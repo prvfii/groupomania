@@ -3,9 +3,9 @@ const fs = require("fs");
 const { promisify } = require("util");
 const pipeline = promisify(require("stream").pipeline);
 const { uploadErrors } = require("../utils/errors.utils");
-const multer = require('multer')
+
 module.exports.uploadProfil = async (req, res) => {
-  try {
+ /*  try {
     if (
       req.file.type != "image/jpg" &&
       req.file.type != "image/png" &&
@@ -25,12 +25,12 @@ module.exports.uploadProfil = async (req, res) => {
     fs.createWriteStream(
       `${__dirname}/../client/public/uploads/profil/${fileName}`
     )
-  );
+  ); */
 
   try {
     await UserModel.findByIdAndUpdate(
       req.body.userId,
-        { $set: { picture: "./uploads/profil/" + fileName } },
+        { $set: { picture: `${req.protocol}://${req.get("host")}/images/${req.file.filename}` } },
         { new: true, upsert: true, setDefaultsOnInsert: true })
         .then((data) => res.send(data))
         .catch((err) => res.status(500).send({ message: err }));
