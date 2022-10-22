@@ -1,4 +1,5 @@
-# Groupomania_p7
+# groupomania
+
 Ce projet est le 7eme projet du parcours developpeur web d'openclassrooms.
 Le but du projet était de créer un réseau social d’entreprise nommé Groupomania.
 
