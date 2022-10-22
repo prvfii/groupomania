@@ -1,4 +1,4 @@
-# p7_groupomania.github.io
+# Groupomania_p7
 Ce projet est le 7eme projet du parcours developpeur web d'openclassrooms.
 Le but du projet était de créer un réseau social d’entreprise nommé Groupomania.
 
@@ -29,4 +29,5 @@ Après avoir cloné le projet, installé toutes les dépendances et avec un acc�
   ```
  
   Normalement le front s'ouvrira sur votre navigateur principal.# groupomania_p7
-# p7-groupomania
+
+
