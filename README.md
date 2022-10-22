@@ -28,4 +28,4 @@ Après avoir cloné le projet, installé toutes les dépendances et avec un acc�
   npm start
   ```
  
-  Normalement le front s'ouvrira sur votre navigateur principal.
+  Normalement le front s'ouvrira sur votre navigateur principal.# groupomania_p7
