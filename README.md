@@ -29,3 +29,4 @@ Après avoir cloné le projet, installé toutes les dépendances et avec un acc�
   ```
  
   Normalement le front s'ouvrira sur votre navigateur principal.# groupomania_p7
+# p7-groupomania
