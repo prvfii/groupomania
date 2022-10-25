@@ -5,7 +5,7 @@ Le but du projet était de créer un réseau social d’entreprise nommé Groupo
 
 # Ce que j'ai utilisé pour ce projet
 
-Alors le projet a ete crée en **Node JS** et **Express** Pour le backend. 
+Alors le projet a été crée en **Node JS** et **Express** Pour le backend. 
 Pour le front c'est **React**. 
 Comme base de données, c'est une base de données NOSQL : **MongoDB**.
 
