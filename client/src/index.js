@@ -1,6 +1,5 @@
-import { BrowserRouter } from "react-router-dom";
+import * as ReactDOMClient from 'react-dom/client';
 import { legacy_createStore as createStore } from "redux";
-import {createRoot} from 'react-dom/client';
 import './styles/index.css'
 import React from "react";
 import ReactDOM from "react-dom";
@@ -23,7 +22,7 @@ const store = createStore(
 store.dispatch(getUsers());
 store.dispatch(getPosts());
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOMClient.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     

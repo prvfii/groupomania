@@ -45,6 +45,7 @@ const CardComments = ({ post }) => {
                     .join("")
                 }
                 alt="commenter-pic"
+                className="commenter-pic"
               />
             </div>
             <div className="right-part">

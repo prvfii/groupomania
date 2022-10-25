@@ -6,9 +6,6 @@ const fs = require("fs");
 const { promisify } = require("util");
 const pipeline = promisify(require("stream").pipeline);
 
-
-
-
 module.exports.readPost = (req, res) => {
   PostModel.find((err, docs) => {
     if (!err) res.send(docs);
@@ -117,78 +114,69 @@ module.exports.readPost = (req, res) => {
 };
  */
 
-module.exports.createPost = async (req,res) => {
-
-  const picture = (req.file ? req.file.filename : null);
+module.exports.createPost = async (req, res) => {
+  const picture = req.file ? req.file.filename : null;
   const message = req.body.message;
 
-
-
-  if(!message && !picture) return res.status(400).json('Publication vide')
+  if (!message && !picture) return res.status(400).json("Publication vide");
 
   const newPost = new PostModel({
-      posterId: req.body.posterId,
-      message: message,
-      picture: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`, 
-      likers: [],
-      comments: [],
-  })
+    posterId: req.body.posterId,
+    message: message,
+    picture: req.file
+      ? `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
+      : "",
+    likers: [],
+    comments: [],
+  });
 
   try {
-      await newPost.save();
-      res.status(200).json('Post crée avec success');
+    await newPost.save();
+    res.status(200).json("Post crée avec success");
+  } catch (err) {
+    res.status(400).send(err);
   }
-  catch (err) {
-      res.status(400).send(err);
-  }
-}
+};
 module.exports.updatePost = async (req, res) => {
-   if (!ObjectID.isValid(req.params.id))
+  if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown : " + req.params.id);
-    const postId = req.params.id;
-   const { userId, isAdmin } = req.body;
-
-   try {
-      const post = await PostModel.findById(postId);
-      if (isAdmin || post.userId === userId) {
-        console.log(isAdmin);
-        const updatedRecord = {
-     message: req.body.message,
-   };
-
+  const userAdmin = await UserModel.find({ isAdmin: true });
   
+  
+  const post = await PostModel.find({ _id: req.params.id });
 
-  PostModel.findByIdAndUpdate(
-    req.params.id,
-    { $set: updatedRecord },
-    { new: true },
-    (err, docs) => {
-      if (!err) res.send(docs);
-      else console.log("Update error : " + err);
+  console.log(post);
+
+
+  console.log(userAdmin);
+  if (userAdmin) {
+    try {
+      const updatedRecord = {
+        message: req.body.message,
+      };
+
+      PostModel.findByIdAndUpdate(
+        req.params.id,
+        { $set: updatedRecord },
+        { new: true },
+        (err, docs) => {
+          if (!err) res.send(docs);
+          else console.log("Update error : " + err);
+        }
+      );
+    } catch (err) {
+      console.log(err);
     }
-
-  )
   }
-   } catch(err) {
-    console.log(err);
-   }
-  }
-  
+};
+module.exports.deletePost = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send("ID unknown" + req.params.id);
 
-module.exports.deletePost = async(req, res) => {
-  
-        if (!ObjectID.isValid(req.params.id))
-          return res.status(400).send("ID unknown" + req.params.id);
-          const postId = req.params.id;
-    
-  const { userId, isAdmin } = req.body;
-  const post = await PostModel.findById(postId);
-
-  if(isAdmin || post.userId === userId){
   PostModel.findByIdAndRemove(req.params.id, (err, docs) => {
     if (!err) res.send(docs);
     else console.log("Delete error" + err);
-  });}
+  });
 };
 
 module.exports.likePost = (req, res) => {
