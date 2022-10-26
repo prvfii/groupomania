@@ -11,7 +11,26 @@ Comme base de données, c'est une base de données NOSQL : **MongoDB**.
 
 # COMMENT LANCER LE PROJET ?
 
-Après avoir cloné le projet, installé toutes les dépendances et avec un accès aux variables d'environement vous pouvez exécuter les commandes ci-dessous.
+Après avoir cloné le projet, installé toutes les dépendances et avec un accès aux variables d'environement, il faut vous créer un fichier .env dans le backend avec les noms de variables d'environement suivants : 
+
+```
+PORT = 
+mongo_username =
+mongo_password = 
+mongo_cluster = 
+TOKEN_SECRET = 
+CLIENT_URL = 
+```
+
+Ensuite un fichier .env dans le dossier client avec la variable suivante : 
+
+```
+REACT_APP_API_URL =
+```
+
+
+
+vous pouvez maintenant exécuter les commandes ci-dessous.
 
 > Backend
   
