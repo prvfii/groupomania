@@ -1,17 +1,21 @@
-# groupomania
+𝑮𝒓𝒐𝒖𝒑𝒐𝒎𝒂𝒏𝒊𝒂
 
-Ce projet est le 7eme projet du parcours developpeur web d'openclassrooms.
-Le but du projet était de créer un réseau social d’entreprise nommé Groupomania.
+    This project is the 7th assignment of the OpenClassrooms Web Developer program.
+    The objective of this project was to create an enterprise social network named Groupomania.
 
-# Ce que j'ai utilisé pour ce projet
+Technologies Used
 
-Alors le projet a été crée en **Node JS** et **Express** Pour le backend. 
-Pour le front c'est **React**. 
-Comme base de données, c'est une base de données NOSQL : **MongoDB**.
+	•	Backend: Built with Node.js and Express.js.
+	•	Frontend: Developed using React.js.
+	•	Database: A NoSQL database, specifically MongoDB.
 
-# COMMENT LANCER LE PROJET ?
+How to Run the Project
 
-Après avoir cloné le projet, installé toutes les dépendances et avec un accès aux variables d'environement, il faut vous créer un fichier .env dans le backend avec les noms de variables d'environement suivants : 
+Prerequisites
+
+  	1.	Clone the repository to your local machine
+    2. Install all dependencies for both the backend and frontend
+    3. Make sure you have access to the required environment variables.
 
 ```
 PORT = 
@@ -22,7 +26,7 @@ TOKEN_SECRET =
 CLIENT_URL = 
 ```
 
-Ensuite un fichier .env dans le dossier client avec la variable suivante : 
+Create a .env file in the backend directory with the following variables:
 
 ```
 REACT_APP_API_URL =
@@ -30,18 +34,25 @@ REACT_APP_API_URL =
 
 
 
-vous pouvez maintenant exécuter les commandes ci-dessous.
+Run the Project
 
-> Backend
+Backend
+
+	1.	Navigate to the backend directory:
   
   ```
   cd back
   Nodemon server
   ```
   
-  Normalement votre terminal affichera "Listening on port 5000" et connexion à mongoDB reussie !
+You should see the message:
+“Listening on port 5000”
+“Connected to MongoDB successfully!”
+
   
-> Frontend 
+Frontend
+
+	1.	Navigate to the client directory:
 
   ```
   cd client
